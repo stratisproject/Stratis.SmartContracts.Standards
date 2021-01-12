@@ -1,6 +1,4 @@
-﻿using Stratis.SmartContracts;
-
-namespace Stratis.SmartContracts.Standards
+﻿namespace Stratis.SmartContracts.Standards
 {
     /// <summary>
     /// Interface for a standard smart contract token
