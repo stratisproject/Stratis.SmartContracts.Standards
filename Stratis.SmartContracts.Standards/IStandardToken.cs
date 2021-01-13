@@ -51,5 +51,11 @@
         /// <param name="spender">The address of the spender of the tokens.</param>
         /// <returns>The number of tokens.</returns>
         uint256 Allowance(Address owner, Address spender);
+
+        /// <summary>
+        /// Returns the amount of decimals for display and calculation purposes.
+        /// </summary>
+        /// <returns>The amount of decimals for display and calculation purposes.</returns>
+        uint GetDecimals();
     }
 }
