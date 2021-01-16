@@ -13,7 +13,6 @@
         /// <summary>
         /// Returns the amount of decimals for display and calculation purposes.
         /// </summary>
-        /// <returns>The amount of decimals for display and calculation purposes.</returns>
         uint Decimals { get; }
 
         /// <summary>
