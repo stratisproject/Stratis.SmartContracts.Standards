@@ -6,6 +6,21 @@
     public interface IStandardToken
     {
         /// <summary>
+        /// The name of the token.
+        /// </summary>
+        string Name { get; }
+        
+        /// <summary>
+        /// The symbol used to identify the token.
+        /// </summary>
+        string Symbol { get; }
+        
+        /// <summary>
+        /// The amount of decimals for display and calculation purposes.
+        /// </summary>
+        uint Decimals { get; }
+        
+        /// <summary>
         /// The total number of tokens in existence.
         /// </summary>
         UInt256 TotalSupply { get; }
@@ -51,11 +66,5 @@
         /// <param name="spender">The address of the spender of the tokens.</param>
         /// <returns>The number of tokens.</returns>
         UInt256 Allowance(Address owner, Address spender);
-
-        /// <summary>
-        /// Returns the amount of decimals for display and calculation purposes.
-        /// </summary>
-        /// <returns>The amount of decimals for display and calculation purposes.</returns>
-        uint GetDecimals();
     }
 }
