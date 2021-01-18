@@ -11,6 +11,11 @@
         UInt256 TotalSupply { get; }
 
         /// <summary>
+        /// Returns the amount of decimals for display and calculation purposes.
+        /// </summary>
+        uint Decimals { get; }
+
+        /// <summary>
         /// Gets the balance of the specified address.
         /// </summary>
         /// <param name="address">The address to query the balance of.</param>
@@ -52,10 +57,6 @@
         /// <returns>The number of tokens.</returns>
         UInt256 Allowance(Address owner, Address spender);
 
-        /// <summary>
-        /// Returns the amount of decimals for display and calculation purposes.
-        /// </summary>
-        /// <returns>The amount of decimals for display and calculation purposes.</returns>
-        uint GetDecimals();
+
     }
 }
