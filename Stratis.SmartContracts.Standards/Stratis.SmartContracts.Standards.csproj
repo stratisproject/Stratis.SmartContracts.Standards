@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <Version>1.3.0</Version>
-    <VersionSuffix>alpha</VersionSuffix>
+    <Version>1.4.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Stratis.SmartContracts" Version="1.3.0-alpha" />
+    <PackageReference Include="Stratis.SmartContracts" Version="1.4.0-alpha" />
   </ItemGroup>
 
 </Project>
