@@ -8,19 +8,14 @@
         /// <summary>
         /// The total number of tokens in existence.
         /// </summary>
-        UInt256 TotalSupply { get; }
-
-        /// <summary>
-        /// Returns the amount of decimals for display and calculation purposes.
-        /// </summary>
-        uint Decimals { get; }
+        ulong TotalSupply { get; }
 
         /// <summary>
         /// Gets the balance of the specified address.
         /// </summary>
         /// <param name="address">The address to query the balance of.</param>
         /// <returns>Balance for the given address</returns>
-        UInt256 GetBalance(Address address);
+        ulong GetBalance(Address address);
 
         /// <summary>
         /// Transfers tokens owned by the sender to the destination address.
@@ -28,7 +23,7 @@
         /// <param name="to">The address to transfer the tokens to.</param>
         /// <param name="amount">The amount of tokens to transfer.</param>
         /// <returns>A bool representing whether the transfer was successful.</returns>
-        bool TransferTo(Address to, UInt256 amount);
+        bool TransferTo(Address to, ulong amount);
 
         /// <summary>
         /// Transfers tokens owned by one address to another address.
@@ -38,7 +33,7 @@
         /// <param name="to">The address to transfer the tokens to.</param>
         /// <param name="amount">The amount of tokens to transfer.</param>
         /// <returns>A bool representing whether the transfer was successful.</returns>
-        bool TransferFrom(Address from, Address to, UInt256 amount);
+        bool TransferFrom(Address from, Address to, ulong amount);
 
         /// <summary>
         /// Approves the spender to be able to transfer an amount of tokens on Message.Sender's behalf.
@@ -47,7 +42,7 @@
         /// <param name="currentAmount">The current amount of tokens that the spender is approved to transfer.</param>
         /// <param name="amount">To amount of tokens to approve.</param>
         /// <returns>A bool representing whether the approval was successful.</returns>
-        bool Approve(Address spender, UInt256 currentAmount, UInt256 amount);
+        bool Approve(Address spender, ulong currentAmount, ulong amount);
 
         /// <summary>
         /// Returns the amount of tokens owned by owner that the spender is able to spend.
@@ -55,8 +50,64 @@
         /// <param name="owner">The address of the owner of the tokens.</param>
         /// <param name="spender">The address of the spender of the tokens.</param>
         /// <returns>The number of tokens.</returns>
-        UInt256 Allowance(Address owner, Address spender);
+        ulong Allowance(Address owner, Address spender);
+    }
 
+    /// <summary>
+    /// Interface for a standard smart contract token. "T" is the type used for amounts.
+    /// </summary>
+    public interface IStandardToken<T>
+    {
+        /// <summary>
+        /// The total number of tokens in existence.
+        /// </summary>
+        T TotalSupply { get; }
 
+        /// <summary>
+        /// Returns the amount of decimals for display and calculation purposes.
+        /// </summary>
+        byte Decimals { get; }
+
+        /// <summary>
+        /// Gets the balance of the specified address.
+        /// </summary>
+        /// <param name="address">The address to query the balance of.</param>
+        /// <returns>Balance for the given address</returns>
+        T GetBalance(Address address);
+
+        /// <summary>
+        /// Transfers tokens owned by the sender to the destination address.
+        /// </summary>
+        /// <param name="to">The address to transfer the tokens to.</param>
+        /// <param name="amount">The amount of tokens to transfer.</param>
+        /// <returns>A bool representing whether the transfer was successful.</returns>
+        bool TransferTo(Address to, T amount);
+
+        /// <summary>
+        /// Transfers tokens owned by one address to another address.
+        /// Message.Sender must have approval to transfer tokens on behalf of the owner.
+        /// </summary>
+        /// <param name="from">The address to transfer the tokens from.</param>
+        /// <param name="to">The address to transfer the tokens to.</param>
+        /// <param name="amount">The amount of tokens to transfer.</param>
+        /// <returns>A bool representing whether the transfer was successful.</returns>
+        bool TransferFrom(Address from, Address to, T amount);
+
+        /// <summary>
+        /// Approves the spender to be able to transfer an amount of tokens on Message.Sender's behalf.
+        /// </summary>
+        /// <param name="spender">The address to grant approval to.</param>
+        /// <param name="currentAmount">The current amount of tokens that the spender is approved to transfer.</param>
+        /// <param name="amount">To amount of tokens to approve.</param>
+        /// <returns>A bool representing whether the approval was successful.</returns>
+        bool Approve(Address spender, T currentAmount, T amount);
+
+        /// <summary>
+        /// Returns the amount of tokens owned by owner that the spender is able to spend.
+        /// </summary>
+        /// <param name="owner">The address of the owner of the tokens.</param>
+        /// <param name="spender">The address of the spender of the tokens.</param>
+        /// <returns>The number of tokens.</returns>
+        T Allowance(Address owner, Address spender);
     }
 }
