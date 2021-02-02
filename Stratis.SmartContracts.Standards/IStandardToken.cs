@@ -56,7 +56,7 @@
     /// <summary>
     /// Interface for a standard smart contract token.
     /// </summary>
-    internal interface IStandardToken256
+    public interface IStandardToken256
     {
         /// <summary>
         /// The total number of tokens in existence.
